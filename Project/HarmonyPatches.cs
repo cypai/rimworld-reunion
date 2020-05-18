@@ -89,20 +89,6 @@ namespace Kyrun.Reunion
 		}
 
 
-		// Reverse patches to use original code
-		[HarmonyPatch]
-		static class ReversePatch
-		{
-			[HarmonyReversePatch]
-			[HarmonyPatch(typeof(IncidentWorker), "SendStandardLetter")]
-			[HarmonyPatch(new Type[] { typeof(TaggedString), typeof(TaggedString), typeof(LetterDef),
-			typeof(IncidentParms), typeof(LookTargets), typeof(NamedArgument[]) })]
-			public static void SendStandardLetter(object instance, TaggedString baseLetterLabel, TaggedString baseLetterText, LetterDef baseLetterDef,
-				IncidentParms parms, LookTargets lookTargets, params NamedArgument[] textArgs)
-			{ }
-		}
-
-
 		// DEBUG MENU ACTION --------------------------------------------------------------------------
 
 		[HarmonyPatch(typeof(Dialog_DebugActionsMenu))]
